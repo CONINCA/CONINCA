@@ -39,7 +39,7 @@
         header {
             background: linear-gradient(135deg, var(--color-primary) 0%, #1a1a1a 100%);
             color: white;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -56,19 +56,17 @@
             padding: 0 2rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-            color: var(--color-secondary);
+            gap: 1rem;
+            cursor: pointer;
         }
 
         .logo-image {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,17 +78,19 @@
             line-height: 1.1;
         }
 
-        .logo-text span:first-child {
+        .logo-text h1 {
             font-size: 1.4rem;
             color: var(--color-secondary);
             font-weight: 800;
+            margin: 0;
         }
 
-        .logo-text span:last-child {
+        .logo-text p {
             font-size: 0.65rem;
             color: var(--color-accent);
             font-weight: 600;
             letter-spacing: 1px;
+            margin: 0;
         }
 
         .nav-menu {
@@ -717,19 +717,19 @@
                 right: -20%;
             }
 
-            .logo-text span:last-child {
+            .logo-text p {
                 display: none;
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.3rem;
+            .logo-image {
+                width: 45px;
+                height: 45px;
             }
 
-            .logo-image {
-                width: 40px;
-                height: 40px;
+            .logo-text h1 {
+                font-size: 1.2rem;
             }
 
             .hero h1 {
@@ -761,43 +761,48 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* SVG LOGO STYLES */
-        svg {
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
     </style>
 </head>
 <body>
     <!-- HEADER / NAVBAR -->
     <header id="header">
         <nav>
-            <div class="logo">
-                <svg class="logo-image" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Honduras Map -->
-                    <path d="M15 25 Q18 20 22 22 Q25 24 23 28 Z" fill="#7A7A7A" opacity="0.6"/>
-                    
-                    <!-- Main Brick Circle C -->
-                    <circle cx="50" cy="50" r="35" fill="none" stroke="#C41E3A" stroke-width="6"/>
-                    <circle cx="50" cy="50" r="28" fill="none" stroke="#C41E3A" stroke-width="2"/>
-                    
-                    <!-- Brick pattern -->
-                    <g stroke="#333" stroke-width="0.5" fill="none">
-                        <line x1="25" y1="35" x2="35" y2="35"/>
-                        <line x1="35" y1="40" x2="45" y2="40"/>
-                        <line x1="25" y1="50" x2="75" y2="50"/>
-                        <line x1="35" y1="60" x2="65" y2="60"/>
-                        <line x1="30" y1="65" x2="70" y2="65"/>
-                    </g>
-                    
-                    <!-- White space for C -->
-                    <ellipse cx="50" cy="50" rx="15" ry="20" fill="white"/>
-                </svg>
+            <div class="logo-container">
+                <div class="logo-image">
+                    <svg width="55" height="55" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Honduras shape - left side -->
+                        <g opacity="0.8">
+                            <path d="M 15 35 Q 12 32 14 28 Q 16 30 18 32 Q 17 34 15 35" fill="#7A7A7A"/>
+                            <path d="M 28 45 Q 25 42 27 38 Q 29 40 31 43 Q 30 45 28 45" fill="#7A7A7A"/>
+                        </g>
+
+                        <!-- Red brick circle/C shape -->
+                        <circle cx="60" cy="60" r="42" fill="none" stroke="#C41E3A" stroke-width="8"/>
+                        
+                        <!-- Brick pattern inside -->
+                        <g stroke="#333" stroke-width="0.8" fill="none" opacity="0.6">
+                            <!-- Horizontal lines -->
+                            <line x1="25" y1="40" x2="50" y2="40"/>
+                            <line x1="20" y1="50" x2="55" y2="50"/>
+                            <line x1="25" y1="60" x2="95" y2="60"/>
+                            <line x1="20" y1="70" x2="95" y2="70"/>
+                            <line x1="25" y1="80" x2="50" y2="80"/>
+                            
+                            <!-- Vertical lines -->
+                            <line x1="30" y1="35" x2="30" y2="85"/>
+                            <line x1="45" y1="35" x2="45" y2="85"/>
+                        </g>
+
+                        <!-- White space for C letter -->
+                        <ellipse cx="60" cy="60" rx="18" ry="28" fill="white"/>
+                    </svg>
+                </div>
                 <div class="logo-text">
-                    <span>CONINCA</span>
-                    <span>CONSTRUCCIONES</span>
+                    <h1>CONINCA</h1>
+                    <p>Construcciones</p>
                 </div>
             </div>
+
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#quienes-somos">Quiénes somos</a></li>
